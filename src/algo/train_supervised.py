@@ -11,15 +11,6 @@ import src.utils.utils as utils
 import src.algo.batch_generator_supervised as sup_batch
 import src.utils.config as config
 
-forFarid = False
-if forFarid:
-    import tensorflow as tf
-    import keras
-    print('Fix for new Nvidia GPU computation')
-    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.5)
-    sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
-    keras.backend.set_session(sess)
-
 
 def train(workers):
     classes = ('face')
@@ -103,7 +94,7 @@ def train(workers):
             epochs=200,
             max_queue_size=40,
             workers=workers,
-            use_multiprocessing=True,
+            use_multiprocessing=False,
             shuffle=True,
             verbose=1
         )
