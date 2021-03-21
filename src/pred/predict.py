@@ -2,29 +2,14 @@ import numpy as np
 from imgaug import augmenters as iaa
 from tensorflow.keras.models import load_model
 import src.utils.utils as fp_utils
-import src.algo.train_supervised as supervised
-import src.algo.train_semi_supervised as unsupervised
+import src.algo.batch_generator_supervised as sup_batch
 
-import matplotlib.pyplot as plt
-
-# from keras.losses import mean_squared_error
+import src.utils.config as config
 
 import src.utils.plot_points_on_faces as plot_points
 import time
 
-forFarid = True
-
-if forFarid:
-    import tensorflow as tf
-    import keras
-    print('Fix for new Nvidia GPU computation')
-    core_config=tf.ConfigProto()
-    core_config.gpu_options.allow_growth = True
-    session = tf.Session(config=core_config)
-    keras.backend.set_session(session)
-
-
-test_txt_file = r'../../data/valid_5000_5FP.txt'
+test_txt_file = 'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\valid_5000_5FP.txt'
 image_dir = r'../../data/'
 TRAINING_SIZE = 96
 MIN_OBJECT_SIZE = 0
@@ -35,48 +20,38 @@ WORKERS = 8
 CLASSES = ('face')
 
 
-# Load test data
-test_data_list = fp_utils.load_txt_5FP_and_box(test_txt_file, image_dir)
+test_data_list = fp_utils.load_txt_5FP_and_box(config.cfg.TRAIN_PATH.VAL_TXT_FILE, config.cfg.TRAIN_PATH.IMAGE_DIR)
 
 # Prediction Generator
 print("predict generator")
-img_aug_conf_valid = iaa.Sequential([fp_utils.RedefineBoxes()],random_order=False)
+img_aug_conf_valid = iaa.Sequential([fp_utils.RedefineBoxes()], random_order=False)
 
-img_aug_conf_valid_unsup = iaa.Sequential([fp_utils.RedefineBoxes()],random_order=False)
-
-
-val_gen = supervised.BatchGenerator(batch_size=BATCH_SIZE,
-                                    data_list=test_data_list,
-                                    classes=CLASSES,
-                                    shuffle=False,
-                                    image_normalization_fn=fp_utils.normalize_image,
-                                    label_normalization_fn=fp_utils.normalize_label,
-                                    img_aug_conf=img_aug_conf_valid,
-                                    encoding_fn=fp_utils.encode_5FP
-                                    )
+img_aug_conf_valid_unsup = iaa.Sequential([fp_utils.RedefineBoxes()], random_order=False)
 
 
+print("test generator")
+val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.BATCH_SIZE,
+                                             training_size=config.cfg.TRAIN_PARAM.TRAINING_SIZE,
+                                             data_list=test_data_list,
+                                             classes=CLASSES,
+                                             shuffle=True,
+                                             image_normalization_fn=fp_utils.normalize_image,
+                                             label_normalization_fn=fp_utils.normalize_label,
+                                             img_aug_conf=img_aug_conf_valid,
+                                             encoding_fn=fp_utils.encode_5FP
+                                             )
 
-def load_my_model(sizeOfTrain, supervised = True):
-    if sizeOfTrain not in [100, 1000, 10000, 100000, 1000000]:
-        print('loading file failed')
-        return
 
-    if supervised :
-        print('Loading supervised train_%d model' %sizeOfTrain)
-        model_path = "../../models/supervised/supervised_train_%d_valid_5000/model_%d_valid_5000.keras.model" % (sizeOfTrain, sizeOfTrain)
-        model = load_model(model_path)
-    else :
-        print('Loading unsupervised train_%d model' %sizeOfTrain)
-        model_path = "../../models/unsupervised/translation et rotation/train_%d/model_unsup_train_%d_valid_5000.keras.model" % (sizeOfTrain, sizeOfTrain)
-        model = load_model(model_path, custom_objects={'custom_unsupervised_loss': unsupervised.custom_unsupervised_loss})
-
+def load_my_model(path = "C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\models\\supervised\\new"
+                         "\\train_supervised_2021_03_21_00_55_34_10000_valid_5000.keras.model"):
+    model = load_model(path)
     return model
 
 
 def predict_and_compute_losses(model, generator):
-    prediction = model.predict(generator, steps=None, max_queue_size=10, workers=WORKERS, use_multiprocessing=USE_MULTIPROCESSING,
-                                  verbose=1)
+    prediction = model.predict(generator, steps=None, max_queue_size=10, workers=WORKERS,
+                               use_multiprocessing=USE_MULTIPROCESSING,
+                               verbose=1)
 
     print('\n Compute home made losses...')
     mse, eyes_nose_lips_mse = compute_losses(generator, prediction)
@@ -98,7 +73,7 @@ def compute_losses(gen, prediction):
         mse += np.sum(squareDiff)
 
         for i in range(0, 10, 2):
-            eyes_nose_lips_mse[i//2] += np.sum((squareDiff[:,i] + squareDiff[:,i+1]))
+            eyes_nose_lips_mse[i // 2] += np.sum((squareDiff[:, i] + squareDiff[:, i + 1]))
 
         first_idx = last_idx
 
@@ -108,18 +83,17 @@ def compute_losses(gen, prediction):
     return mse, eyes_nose_lips_mse
 
 
-def compute_results(sizeOfTrain, gen, supervised=True, plot=False, nbImagestoPlot = 0):
+def compute_results(sizeOfTrain, gen, supervised=True, plot=False, nbImagestoPlot=0):
     model = load_my_model(sizeOfTrain, supervised)
-    #result = model.evaluate(gen)
-    #print(dict(zip(model.metrics_names, result)))
+    # result = model.evaluate(gen)
+    # print(dict(zip(model.metrics_names, result)))
     prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(model, gen)
     print('\n MSE globale home made', mse)
 
     if plot and supervised:
-        plot_points.plot_from_generator(gen,nbImagestoPlot,prediction,supervised)
+        plot_points.plot_from_generator(gen, nbImagestoPlot, prediction, supervised)
 
-
-    if plot and supervised==False:
+    if plot and supervised == False:
         plot_points.plot_from_generator(gen, nbImagestoPlot, prediction, False)
 
     points = ['left eye', 'right eye', 'nose', 'left lips corner', 'right lips corner']
@@ -128,42 +102,14 @@ def compute_results(sizeOfTrain, gen, supervised=True, plot=False, nbImagestoPlo
     return mse, eyes_nose_lips_mse
 
 
-
 # Main
 if __name__ == '__main__':
 
-    a=time.time()
+    a = time.time()
 
-    MSE_sup = np.zeros(5)
-    MSE_EyesNoseLips_sup = np.zeros([5,5])
+    my_model = load_my_model()
+    prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
+    plot_points.plot_from_generator(val_gen, 10, prediction, True)
 
-    MSE_unsup = np.zeros(5)
-    MSE_EyesNoseLips_unsup = np.zeros([5,5])
 
-    plot_sup = True
-    supervised = True
-
-    plot_unsup = False
-    semi_supervised = False
-    for i, size_of_train in enumerate([100, 1000, 10000, 100000]):
-
-        if supervised:
-            mse, lossENL = compute_results(size_of_train, val_gen, supervised, plot_sup, 5)
-            MSE_sup[i] = mse
-            MSE_EyesNoseLips_sup[i:] = lossENL
-
-        if semi_supervised :
-            mse_unsup, lossENL_unsup = compute_results(size_of_train, val_gen, False, plot_unsup, 5)#val_gen_unsup
-            MSE_unsup[i] = mse_unsup
-            MSE_EyesNoseLips_unsup[i:] = lossENL_unsup
-
-    save = False
-    if save:
-        if supervised:
-            np.savetxt('MSE_sup.csv', MSE_sup, fmt='%1.4e', delimiter=",")
-            np.savetxt('MSE_EyesNoseLips_sup.csv', MSE_EyesNoseLips_sup, fmt='%1.4e', delimiter=",")
-        if semi_supervised :
-            np.savetxt('MSE_unsup.csv', mse_unsup, fmt='%1.4e', delimiter=",")
-            np.savetxt('MSE_EyesNoseLips_unsup.csv', MSE_EyesNoseLips_unsup, fmt='%1.4e', delimiter=",")
-
-    print('Temps d execution en secondes :',time.time()-a)
+    print('Temps d execution en secondes :', time.time() - a)

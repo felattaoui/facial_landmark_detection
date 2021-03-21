@@ -1,5 +1,6 @@
 from easydict import EasyDict
 import src.utils.utils as utils
+import os
 
 __C = EasyDict()
 
@@ -12,13 +13,14 @@ __C.TRAIN_PARAM.TRAINING_SIZE = 96
 __C.TRAIN_PARAM.DATASET_SIZE = 10000
 __C.TRAIN_PARAM.NUM_PARAMETERS = 10
 __C.TRAIN_PARAM.BATCH_SIZE = 32
-__C.TRAIN_PARAM.USE_MULTIPROCESSING = False
-__C.TRAIN_PARAM.WORKERS = 8
+__C.TRAIN_PARAM.USE_MULTIPROCESSING = True
+__C.TRAIN_PARAM.WORKERS = 4
+__C.TRAIN_PARAM.NB_EPOCH = 10
 
 # create Train Path dict
 __C.TRAIN_PATH = EasyDict()
-__C.TRAIN_PATH.MODEL_NAME = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'/home/farid/PycharmProjects/facial_landmark_detection/models/supervised/new')
-__C.TRAIN_PATH.TENSORBOARD_LOGS = __C.TRAIN_PATH.MODEL_NAME + 'logs'
+__C.TRAIN_PATH.MODEL_NAME = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'C:\Users\MS_BGD\PycharmProjects\facial_landmark_detection\models\supervised\new')
+__C.TRAIN_PATH.TENSORBOARD_LOGS = __C.TRAIN_PATH.MODEL_NAME + '.logs'
 __C.TRAIN_PATH.KERAS_MODEL = __C.TRAIN_PATH.MODEL_NAME + '.keras.model'
 __C.TRAIN_PATH.PATH_MODEL = None
 __C.TRAIN_PATH.IMAGE_DIR = r'../../data/'

@@ -14,14 +14,14 @@ from tensorflow.keras.layers import GlobalAveragePooling2D, Flatten, Dropout, De
 
 def model_name(size_of_train, logdir='./models/'):
     dt = datetime.now().strftime('_%Y_%m_%d_%H_%M_%S')
-    dt2 = '_train_%d_valid_5000' % size_of_train
+    dt2 = '_%d_valid_5000' % size_of_train
     dt = dt + dt2
     return os.path.join(logdir, os.path.splitext(os.path.basename(sys.argv[0]))[0] + dt)
 
 
 def get_train_and_valid_file(size_of_train):
-    train_txt_file = r'../../data/train_%d_5FP.txt' % size_of_train
-    val_txt_file = r'../../data/valid_5000_5FP.txt'
+    train_txt_file = r'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\train_%d_5FP.txt' % size_of_train
+    val_txt_file = r'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\valid_5000_5FP.txt'
     if not os.path.isfile(train_txt_file):
         print("Train file does not exist")
 
@@ -31,39 +31,17 @@ def get_train_and_valid_file(size_of_train):
     return train_txt_file, val_txt_file
 
 
-# def reformat_batch_data(data_list, fusion_op=np.stack):
-#     assert (isinstance(data_list, list) and len(data_list) > 0)
-#     if isinstance(data_list[0], dict):
-#         d = data_list[0]
-#         for v in d:
-#             d[v] = fusion_op([dd[v] for dd in data_list])
-#     elif isinstance(data_list[0], list):
-#         d = data_list[0]
-#         for i in range(len(d)):
-#             d[i] = fusion_op([dd[i] for dd in data_list])
-#     else:
-#         d = fusion_op(data_list)
-#     return d
-
-
-def get_one_epoch(sequence):
-    ims = []
-    lbls = []
-    for i in range(len(sequence)):
-        imb, lblb = sequence.__getitem__(i)
-        ims.append(imb)
-        lbls.append(lblb)
-    return reformat_batch_data(ims, np.concatenate), reformat_batch_data(lbls, np.concatenate)
-
-
-def mobilenet_custom(num_output):
+def mobilenet_custom(num_output, training_size = 96):
     preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
-    base_model = MobileNetV2(input_shape=(96, 96, 3),
+    base_model = MobileNetV2(input_shape=(training_size, training_size, 3),
                              include_top=False,
                              weights='imagenet')
     base_model.trainable = False
 
-    inputs = tf.keras.Input(shape=(96, 96, 3))
+    for layer in base_model.layers[:5]:
+        layer.trainable = False
+
+    inputs = tf.keras.Input(shape=(training_size, training_size, 3))
     x = preprocess_input(inputs)
     x = base_model(x, training=False)
     x = GlobalAveragePooling2D()(x)
@@ -106,19 +84,6 @@ def graph_dense_fp(input_tensor, im_size, num_output):
     return x
 
 
-# def CNN_test(input_tensor, im_size, num_output):
-#     # Start
-#     # x = Input(shape=input_shape)
-#     nb_filters = 16
-#     batch_axis = 3
-#
-#     layer_1 = Conv2D(nb_filters, (7, 7), strides=1, padding='same', use_bias=False)(input_tensor)
-#     layer_1 = BatchNormalization(axis=batch_axis, scale=False)(layer_1)
-#     layer_1 = MaxPooling2D(pool_size=(3, 3))(layer_1)
-#     layer_1 = Flatten()(layer_1)
-#     x = last_dense(layer_1, num_output, activation=None, global_average_pooling=False)
-#     return x
-
 def func_keypoints_redefine_boxes(keypoints_on_images, random_state, parents, hooks):
     nb_images = len(keypoints_on_images)
     for i, keypoints_on_image in enumerate(keypoints_on_images):
@@ -149,11 +114,6 @@ def func_images_void(images, random_state, parents, hooks):
     return images
 
 
-#
-# def func_heatmaps_void(heatmaps, random_state, parents, hooks):
-#     return heatmaps
-
-
 def Sym_5fp():
     return iaa.Lambda(
         func_keypoints=func_keypoints_sym_fp,
@@ -169,9 +129,6 @@ def RedefineBoxes():
         func_keypoints=func_keypoints_redefine_boxes,
         func_images=func_images_void)
 
-
-# def _points_to_label(points, image_shape):
-#     return [x for xi in points for x in xi]
 
 def normalize_image(img):
     return img / float(255.0)
