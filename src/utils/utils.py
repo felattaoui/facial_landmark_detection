@@ -9,8 +9,9 @@ import imgaug as ia
 from imgaug import augmenters as iaa
 import math
 import tensorflow as tf
-from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.applications import MobileNetV2, VGG19, VGG16
 from tensorflow.keras.layers import GlobalAveragePooling2D, Flatten, Dropout, Dense
+
 
 def model_name(size_of_train, logdir='./models/'):
     dt = datetime.now().strftime('_%Y_%m_%d_%H_%M_%S')
@@ -31,12 +32,12 @@ def get_train_and_valid_file(size_of_train):
     return train_txt_file, val_txt_file
 
 
-def mobilenet_v2_custom(num_output, training_size = 96):
+def mobilenet_v2_custom(num_output, training_size=96):
     preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
     base_model = MobileNetV2(input_shape=(training_size, training_size, 3),
                              include_top=False,
                              weights='imagenet')
-    #base_model.trainable = False
+    # base_model.trainable = False
 
     for layer in base_model.layers[:5]:
         layer.trainable = False
@@ -50,8 +51,34 @@ def mobilenet_v2_custom(num_output, training_size = 96):
     outputs = Dense(num_output, activation='linear')(x)
 
     model = tf.keras.Model(inputs=inputs, outputs=outputs)
+    model.summary()
 
     return model
+
+
+# def vgg19_custom(num_output, training_size=96):
+#     preprocess_input = tf.keras.applications.vgg19.preprocess_input
+#     base_model = VGG19(input_shape=(training_size, training_size, 3),
+#                        include_top=False,
+#                        weights='imagenet')
+#     # base_model.trainable = False
+#
+#     for layer in base_model.layers[:5]:
+#         layer.trainable = False
+#
+#     inputs = tf.keras.Input(shape=(training_size, training_size, 3))
+#     x = preprocess_input(inputs)
+#     x = base_model(x, training=False)
+#     x = GlobalAveragePooling2D()(x)
+#     x = Dropout(0.2)(x)
+#     x = Flatten()(x)
+#     outputs = Dense(num_output, activation='linear')(x)
+#
+#     model = tf.keras.Model(inputs=inputs, outputs=outputs)
+#     model.summary()
+#
+#     return model
+
 
 def graph_dense_fp(input_tensor, im_size, num_output):
     x = conv(input_tensor, filters=64, kernel_size=(3, 3), padding='same',

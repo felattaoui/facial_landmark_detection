@@ -19,7 +19,7 @@ __C.TRAIN_PARAM.NB_EPOCH = 100
 
 # create Train Path dict
 __C.TRAIN_PATH = EasyDict()
-__C.TRAIN_PATH.MODEL_NAME = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'C:\Users\MS_BGD\PycharmProjects\facial_landmark_detection\models\supervised\new')
+__C.TRAIN_PATH.MODEL_NAME = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'C:\Users\MS_BGD\PycharmProjects\facial_landmark_detection\models\vgg19\new')
 __C.TRAIN_PATH.TENSORBOARD_LOGS = __C.TRAIN_PATH.MODEL_NAME + '.logs'
 __C.TRAIN_PATH.KERAS_MODEL = __C.TRAIN_PATH.MODEL_NAME + '.keras.model'
 __C.TRAIN_PATH.PATH_MODEL = None
