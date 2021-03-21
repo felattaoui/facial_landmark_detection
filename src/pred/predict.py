@@ -42,8 +42,8 @@ val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.B
                                              )
 
 
-def load_my_model(path = "C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\models\\supervised\\new"
-                         "\\train_supervised_2021_03_21_02_10_19_10000_valid_5000.keras.model"):
+
+def load_my_model(path = "../../models/vgg19/new/train_supervised_2021_03_21_16_27_38_10000_valid_5000.keras.model"):
     model = load_model(path)
     return model
 
@@ -109,7 +109,8 @@ if __name__ == '__main__':
 
     my_model = load_my_model()
     prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
-    plot_points.plot_from_generator(val_gen, 20, prediction, True)
+    print('mse',mse)
+    plot_points.plot_from_generator(val_gen, 10, prediction, True)
 
 
     print('Temps d execution en secondes :', time.time() - a)
