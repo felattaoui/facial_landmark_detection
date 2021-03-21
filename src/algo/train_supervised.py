@@ -15,7 +15,7 @@ import src.utils.config as config
 def train(workers):
     classes = ('face')
     img_aug_conf = iaa.Sequential([
-        iaa.Affine(rotate=(-35, 35)),
+        # iaa.Affine(rotate=(-35, 35)),
         # iaa.PerspectiveTransform(scale=(0, 0.10)),
         # iaa.CropAndPad(percent=(-0.0, -0.15)),
         # iaa.Sometimes(0.5, utils.Fliplr_5fp()),
@@ -67,7 +67,7 @@ def train(workers):
 
     # build the model
     if config.cfg.TRAIN_PATH.PATH_MODEL is None:
-        my_model = utils.mobilenet_custom(config.cfg.TRAIN_PARAM.NUM_PARAMETERS)
+        my_model = utils.mobilenet_v2_custom(config.cfg.TRAIN_PARAM.NUM_PARAMETERS)
     else:
         my_model = load_model(config.cfg.TRAIN_PATH.PATH_MODEL)
 
@@ -103,7 +103,7 @@ def train(workers):
             epochs=config.cfg.TRAIN_PARAM.NB_EPOCH,
             max_queue_size=40,
             workers=workers,
-            use_multiprocessing=True,
+            use_multiprocessing=config.cfg.TRAIN_PARAM.USE_MULTIPROCESSING,
             callbacks=cbs,
             shuffle=True,
             verbose=1

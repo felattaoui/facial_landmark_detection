@@ -31,12 +31,12 @@ def get_train_and_valid_file(size_of_train):
     return train_txt_file, val_txt_file
 
 
-def mobilenet_custom(num_output, training_size = 96):
+def mobilenet_v2_custom(num_output, training_size = 96):
     preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
     base_model = MobileNetV2(input_shape=(training_size, training_size, 3),
                              include_top=False,
                              weights='imagenet')
-    base_model.trainable = False
+    #base_model.trainable = False
 
     for layer in base_model.layers[:5]:
         layer.trainable = False
