@@ -28,13 +28,11 @@ val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.B
                                              preprocess_pred=True
                                              )
 
-#"../../models/vgg19/new/train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model"
-#"../../models/mobilenet_v2/new/train_supervised_2021_03_21_23_31_25_10000_valid_5000.keras.model"
 
 # Main
 if __name__ == '__main__':
     a = time.time()
-
+    model_path = "../../models/vgg19/new/train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model"
     my_model = load_my_model()
     prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
     print('mse', mse)

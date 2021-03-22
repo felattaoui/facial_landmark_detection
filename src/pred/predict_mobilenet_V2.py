@@ -21,23 +21,21 @@ val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.B
                                              data_list=test_data_list,
                                              classes=CLASSES,
                                              shuffle=False,
-                                             image_normalization_fn=utils.normalize_image,
+                                             image_normalization_fn=utils.normalize_image_mv2,
                                              label_normalization_fn=utils.normalize_label,
                                              img_aug_conf=img_aug_conf_valid,
                                              encoding_fn=utils.encode_5FP,
                                              preprocess_pred=True
                                              )
 
-#"../../models/vgg19/new/train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model"
-#"../../models/mobilenet_v2/new/train_supervised_2021_03_21_23_31_25_10000_valid_5000.keras.model"
 
 # Main
 if __name__ == '__main__':
     a = time.time()
-
-    my_model = load_my_model()
+    model_path = "../../models/mobilenet_v2/new/train_supervised_2021_03_21_23_31_25_10000_valid_5000.keras.model"
+    my_model = load_my_model(model_path)
     prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
     print('mse', mse)
-    plot_points.plot_from_generator(val_gen, 10, prediction, True)
+    plot_points.plot_from_generator(val_gen, 10, prediction, True, mv2=True)
 
     print('Temps d execution en secondes :', time.time() - a)

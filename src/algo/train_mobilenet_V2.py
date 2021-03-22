@@ -8,6 +8,8 @@ import time
 import src.utils.utils as utils
 import src.algo.batch_generator_supervised as sup_batch
 import src.utils.config as config
+from src.algo.custom_models import mobilenet_v2_custom
+
 
 from tensorflow.python.keras.models import Model
 from tensorflow.python.keras.layers import Input
@@ -60,7 +62,7 @@ def train(workers):
                                                    data_list=train_data_list,
                                                    classes=classes,
                                                    shuffle=True,
-                                                   image_normalization_fn=utils.normalize_image,
+                                                   image_normalization_fn=utils.normalize_image_mv2,
                                                    label_normalization_fn=utils.normalize_label,
                                                    img_aug_conf=img_aug_conf,
                                                    encoding_fn=utils.encode_5FP
@@ -71,7 +73,7 @@ def train(workers):
                                                  data_list=val_data_list,
                                                  classes=classes,
                                                  shuffle=True,
-                                                 image_normalization_fn=utils.normalize_image,
+                                                 image_normalization_fn=utils.normalize_image_mv2,
                                                  label_normalization_fn=utils.normalize_label,
                                                  img_aug_conf=img_aug_conf_valid,
                                                  encoding_fn=utils.encode_5FP
@@ -83,13 +85,13 @@ def train(workers):
                                0], config.cfg.TRAIN_PARAM.BATCH_SIZE)
 
     # # build the model
-    # if config.cfg.TRAIN_PATH.PATH_MODEL is None:
-    #     my_model = utils.mobilenet_v2_custom(config.cfg.TRAIN_PARAM.NUM_PARAMETERS)
-    #     #my_model = utils.vgg19_custom(config.cfg.TRAIN_PARAM.NUM_PARAMETERS)
-    # else:
-    #     my_model = load_model(config.cfg.TRAIN_PATH.PATH_MODEL)
-    #
-    # my_model.summary()
+    if config.cfg.TRAIN_PATH.PATH_MODEL is None:
+        my_model = mobilenet_v2_custom(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size=config.cfg.
+                                       TRAIN_PARAM.TRAINING_SIZE)
+    else:
+        my_model = load_model(config.cfg.TRAIN_PATH.PATH_MODEL_MV2)
+
+    my_model.summary()
 
 
     # build the custem model
@@ -109,12 +111,12 @@ def train(workers):
     # callbacks
 
     cbs = [
-        callbacks.ModelCheckpoint(config.cfg.TRAIN_PATH.KERAS_MODEL, monitor='mean_squared_error', verbose=1,
+        callbacks.ModelCheckpoint(config.cfg.TRAIN_PATH.KERAS_MODEL_MV2, monitor='mean_squared_error', verbose=1,
                                   save_best_only=True, save_weights_only=False, mode='min', period=1),
 
         callbacks.EarlyStopping(monitor='mean_squared_error', min_delta=0, patience=5, verbose=1, mode='min'),
 
-        callbacks.TensorBoard(log_dir=config.cfg.TRAIN_PATH.TENSORBOARD_LOGS, histogram_freq=0,
+        callbacks.TensorBoard(log_dir=config.cfg.TRAIN_PATH.TENSORBOARD_LOGS_MV2, histogram_freq=0,
                               batch_size=config.cfg.TRAIN_PARAM.BATCH_SIZE,  write_graph=True, write_grads=False,
                               write_images=False),
 
