@@ -3,14 +3,12 @@ from imgaug import augmenters as iaa
 from tensorflow.keras.models import load_model
 import src.utils.utils as fp_utils
 import src.algo.batch_generator_supervised as sup_batch
-
 import src.utils.config as config
-
 import src.utils.plot_points_on_faces as plot_points
 import time
-import tensorflow as tf
 
-test_txt_file = 'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\valid_5000_5FP.txt'
+test_txt_file = r'../../data/valid_5000_5FP.txt'
+
 image_dir = r'../../data/'
 TRAINING_SIZE = 96
 MIN_OBJECT_SIZE = 0

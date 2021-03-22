@@ -21,8 +21,8 @@ def model_name(size_of_train, logdir='./models/'):
 
 
 def get_train_and_valid_file(size_of_train):
-    train_txt_file = r'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\train_%d_5FP.txt' % size_of_train
-    val_txt_file = r'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\valid_5000_5FP.txt'
+    train_txt_file = r'../../data/train_%d_5FP.txt' % size_of_train
+    val_txt_file = r'../../data/valid_5000_5FP.txt'
     if not os.path.isfile(train_txt_file):
         print("Train file does not exist")
 
