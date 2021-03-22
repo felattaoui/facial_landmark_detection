@@ -1,0 +1,1305 @@
+C:\Users\MS_BGD\Anaconda3\envs\tf_2_3_gpu\python.exe C:/Users/MS_BGD/PycharmProjects/facial_landmark_detection/src/algo/train_vgg19.py
+2021-03-22 19:50:40.408742: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+loading annotations
+loading annotations
+training generator
+validation generator
+2021-03-22 19:50:42.683231: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2021-03-22 19:50:42.710375: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
+coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s
+2021-03-22 19:50:42.710658: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:50:42.713838: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2021-03-22 19:50:42.715936: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2021-03-22 19:50:42.716760: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2021-03-22 19:50:42.719413: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2021-03-22 19:50:42.721548: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2021-03-22 19:50:42.726934: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2021-03-22 19:50:42.727089: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2021-03-22 19:50:42.727326: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-03-22 19:50:42.736096: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1fc33ab9750 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-22 19:50:42.736317: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-03-22 19:50:42.736640: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
+coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s
+2021-03-22 19:50:42.736816: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:50:42.736930: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2021-03-22 19:50:42.737069: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2021-03-22 19:50:42.737189: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2021-03-22 19:50:42.737334: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2021-03-22 19:50:42.737452: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2021-03-22 19:50:42.737563: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2021-03-22 19:50:42.737713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2021-03-22 19:50:43.181279: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-22 19:50:43.181405: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2021-03-22 19:50:43.181485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2021-03-22 19:50:43.181684: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 2907 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5)
+2021-03-22 19:50:43.184541: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1fc5df181c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-03-22 19:50:43.184684: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1650, Compute Capability 7.5
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+vgg19 (Functional)           (None, 3, 3, 512)         20024384  
+_________________________________________________________________
+flatten (Flatten)            (None, 4608)              0         
+_________________________________________________________________
+dense (Dense)                (None, 10)                46090     
+=================================================================
+Total params: 20,070,474
+Trainable params: 2,405,898
+Non-trainable params: 17,664,576
+_________________________________________________________________
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+vgg19 (Functional)           (None, 3, 3, 512)         20024384  
+_________________________________________________________________
+flatten (Flatten)            (None, 4608)              0         
+_________________________________________________________________
+dense (Dense)                (None, 10)                46090     
+=================================================================
+Total params: 20,070,474
+Trainable params: 2,405,898
+Non-trainable params: 17,664,576
+_________________________________________________________________
+WARNING:tensorflow:`period` argument is deprecated. Please use `save_freq` to specify the frequency in number of batches seen.
+WARNING:tensorflow:`batch_size` is no longer needed in the `TensorBoard` Callback and will be ignored in TensorFlow 2.0.
+2021-03-22 19:50:43.612011: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session started.
+2021-03-22 19:50:43.612090: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1391] Profiler found 1 GPUs
+2021-03-22 19:50:43.613245: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cupti64_101.dll
+model_compile
+model_generator
+2021-03-22 19:50:43.715600: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1441] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+WARNING:tensorflow:From C:/Users/MS_BGD/PycharmProjects/facial_landmark_detection/src/algo/train_vgg19.py:142: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+C:\Users\MS_BGD\Anaconda3\envs\tf_2_3_gpu\lib\site-packages\imgaug\imgaug.py:184: DeprecationWarning: Method `Sequential.reseed()` is deprecated. Use `imgaug.augmenters.meta.Augmenter.seed_` instead.
+  warn_deprecated(msg, stacklevel=3)
+Epoch 1/100
+2021-03-22 19:50:44.415917: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:50:45.458783: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:50:48.175283: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:50:50.947065: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:50:53.620735: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:50:55.759316: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2021-03-22 19:50:56.670215: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Internal: Invoking GPU asm compilation is supported on Cuda non-Windows platforms only
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+  1/312 [..............................] - ETA: 0s - loss: 1.1193 - mean_squared_error: 1.11932021-03-22 19:50:57.371838: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session started.
+2021-03-22 19:50:57.372645: E tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1441] function cupti_interface_->Subscribe( &subscriber_, (CUpti_CallbackFunc)ApiCallback, this)failed with error CUPTI_ERROR_INSUFFICIENT_PRIVILEGES
+WARNING:tensorflow:From C:\Users\MS_BGD\Anaconda3\envs\tf_2_3_gpu\lib\site-packages\tensorflow\python\ops\summary_ops_v2.py:1277: stop (from tensorflow.python.eager.profiler) is deprecated and will be removed after 2020-07-01.
+Instructions for updating:
+use `tf.profiler.experimental.stop` instead.
+2021-03-22 19:50:57.437593: I tensorflow/core/profiler/internal/gpu/device_tracer.cc:223]  GpuTracer has collected 0 callback api events and 0 activity events. 
+2021-03-22 19:50:57.441616: I tensorflow/core/profiler/rpc/client/save_profile.cc:176] Creating directory: ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57
+2021-03-22 19:50:57.443289: I tensorflow/core/profiler/rpc/client/save_profile.cc:182] Dumped gzipped tool data for trace.json.gz to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.trace.json.gz
+2021-03-22 19:50:57.450287: I tensorflow/core/profiler/rpc/client/save_profile.cc:176] Creating directory: ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57
+2021-03-22 19:50:57.453309: I tensorflow/core/profiler/rpc/client/save_profile.cc:182] Dumped gzipped tool data for memory_profile.json.gz to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.memory_profile.json.gz
+  2/312 [..............................] - ETA: 14s - loss: 0.8713 - mean_squared_error: 0.87132021-03-22 19:50:57.460712: I tensorflow/python/profiler/internal/profiler_wrapper.cc:111] Creating directory: ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57Dumped tool data for xplane.pb to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.xplane.pb
+Dumped tool data for overview_page.pb to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.overview_page.pb
+Dumped tool data for input_pipeline.pb to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.logs\train\plugins\profile\2021_03_22_18_50_57\DESKTOP-BD7H07U.kernel_stats.pb
+
+312/312 [==============================] - ETA: 0s - loss: 0.0351 - mean_squared_error: 0.0351WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:51:18.372267: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:51:21.127154: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:51:23.993258: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:51:27.144880: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00001: mean_squared_error improved from inf to 0.03512, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+WARNING:tensorflow:From C:\Users\MS_BGD\Anaconda3\envs\tf_2_3_gpu\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2021-03-22 19:51:40.029801: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From C:\Users\MS_BGD\Anaconda3\envs\tf_2_3_gpu\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+312/312 [==============================] - 44s 141ms/step - loss: 0.0351 - mean_squared_error: 0.0351 - val_loss: 0.0113 - val_mean_squared_error: 0.0113
+Epoch 2/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:51:42.331304: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:51:45.297011: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:51:48.164862: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:51:51.040395: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0077 - mean_squared_error: 0.0077WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:52:25.380533: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:52:28.577280: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:52:31.824657: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:52:35.277877: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00002: mean_squared_error improved from 0.03512 to 0.00773, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 57s 183ms/step - loss: 0.0077 - mean_squared_error: 0.0077 - val_loss: 0.0063 - val_mean_squared_error: 0.0063
+Epoch 3/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:52:51.505425: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:52:54.654762: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:52:57.711087: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:53:00.700685: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0049 - mean_squared_error: 0.0049WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:53:31.756326: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:53:35.044693: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:53:38.309640: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:53:41.495923: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00003: mean_squared_error improved from 0.00773 to 0.00495, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 0.0049 - mean_squared_error: 0.0049 - val_loss: 0.0048 - val_mean_squared_error: 0.0048
+Epoch 4/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:53:57.435958: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:54:00.406993: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:54:03.343228: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:54:06.219168: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0038 - mean_squared_error: 0.0038WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:54:37.641015: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:54:40.855755: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:54:44.152799: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:54:47.324075: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00004: mean_squared_error improved from 0.00495 to 0.00378, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 174ms/step - loss: 0.0038 - mean_squared_error: 0.0038 - val_loss: 0.0039 - val_mean_squared_error: 0.0039
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 5/100
+2021-03-22 19:55:03.802986: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:55:06.986352: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:55:09.855826: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:55:12.713400: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0030 - mean_squared_error: 0.0030WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:55:45.182909: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:55:48.490184: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:55:51.778204: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:55:54.959952: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00005: mean_squared_error improved from 0.00378 to 0.00302, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 55s 177ms/step - loss: 0.0030 - mean_squared_error: 0.0030 - val_loss: 0.0030 - val_mean_squared_error: 0.0030
+Epoch 6/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:56:11.352959: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:56:14.223134: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:56:17.129653: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:56:20.086838: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0026 - mean_squared_error: 0.0026WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:56:52.768342: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:56:56.606182: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:56:59.908218: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:57:03.196764: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00006: mean_squared_error improved from 0.00302 to 0.00259, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 179ms/step - loss: 0.0026 - mean_squared_error: 0.0026 - val_loss: 0.0026 - val_mean_squared_error: 0.0026
+Epoch 7/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:57:19.360210: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:57:22.299329: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:57:25.440991: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:57:28.504787: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0023 - mean_squared_error: 0.0023WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:58:01.282275: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:58:04.836138: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:58:09.016481: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:58:12.374459: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00007: mean_squared_error improved from 0.00259 to 0.00227, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 57s 182ms/step - loss: 0.0023 - mean_squared_error: 0.0023 - val_loss: 0.0023 - val_mean_squared_error: 0.0023
+Epoch 8/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:58:28.574309: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:58:31.824637: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:58:34.781289: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:58:38.083426: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0020 - mean_squared_error: 0.0020WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:59:10.220226: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:59:13.422420: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:59:16.582023: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:59:19.729683: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00008: mean_squared_error improved from 0.00227 to 0.00199, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 0.0020 - mean_squared_error: 0.0020 - val_loss: 0.0020 - val_mean_squared_error: 0.0020
+Epoch 9/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 19:59:35.986626: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:59:39.847184: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:59:43.164119: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 19:59:46.233193: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0018 - mean_squared_error: 0.0018WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:00:19.518549: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:00:22.925812: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:00:26.298788: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:00:29.537285: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00009: mean_squared_error improved from 0.00199 to 0.00181, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 179ms/step - loss: 0.0018 - mean_squared_error: 0.0018 - val_loss: 0.0018 - val_mean_squared_error: 0.0018
+Epoch 10/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:00:45.612412: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:00:48.763390: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:00:52.002763: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:00:55.192736: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0016 - mean_squared_error: 0.0016WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:01:29.506053: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:01:32.769471: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:01:36.081153: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:01:39.271688: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00010: mean_squared_error improved from 0.00181 to 0.00164, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 181ms/step - loss: 0.0016 - mean_squared_error: 0.0016 - val_loss: 0.0017 - val_mean_squared_error: 0.0017
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 11/100
+2021-03-22 20:01:55.218565: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:01:58.109575: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:02:01.166577: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:02:04.471830: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0015 - mean_squared_error: 0.0015WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:02:38.081494: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:02:41.305068: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:02:44.557604: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:02:47.727828: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00011: mean_squared_error improved from 0.00164 to 0.00152, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 180ms/step - loss: 0.0015 - mean_squared_error: 0.0015 - val_loss: 0.0016 - val_mean_squared_error: 0.0016
+Epoch 12/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:03:04.136998: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:03:07.339250: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:03:10.535742: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:03:13.881200: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0015 - mean_squared_error: 0.0015WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:03:46.767083: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:03:50.568965: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:03:53.855944: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:03:57.270908: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00012: mean_squared_error improved from 0.00152 to 0.00145, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 180ms/step - loss: 0.0015 - mean_squared_error: 0.0015 - val_loss: 0.0014 - val_mean_squared_error: 0.0014
+Epoch 13/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:04:14.173086: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:04:18.234284: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:04:21.506772: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:04:24.650897: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0014 - mean_squared_error: 0.0014WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:04:57.239201: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:05:00.588756: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:05:03.824780: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:05:07.046585: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00013: mean_squared_error improved from 0.00145 to 0.00136, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 55s 176ms/step - loss: 0.0014 - mean_squared_error: 0.0014 - val_loss: 0.0016 - val_mean_squared_error: 0.0016
+Epoch 14/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:05:23.370357: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:05:27.416271: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:05:31.033259: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:05:34.262726: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0013 - mean_squared_error: 0.0013WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:06:09.856016: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:06:13.565294: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:06:17.077535: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:06:20.444767: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00014: mean_squared_error improved from 0.00136 to 0.00128, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 59s 189ms/step - loss: 0.0013 - mean_squared_error: 0.0013 - val_loss: 0.0014 - val_mean_squared_error: 0.0014
+Epoch 15/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:06:36.738197: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:06:40.116758: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:06:43.821758: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:06:47.359325: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0012 - mean_squared_error: 0.0012WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:07:20.848878: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:07:24.066706: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:07:27.250859: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:07:30.410828: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00015: mean_squared_error improved from 0.00128 to 0.00121, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 179ms/step - loss: 0.0012 - mean_squared_error: 0.0012 - val_loss: 0.0013 - val_mean_squared_error: 0.0013
+Epoch 16/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:07:46.608777: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:07:49.814747: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:07:53.002526: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:07:56.132541: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0011 - mean_squared_error: 0.0011WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:08:31.123150: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:08:34.402845: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:08:37.646606: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:08:40.828969: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00016: mean_squared_error improved from 0.00121 to 0.00113, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 57s 184ms/step - loss: 0.0011 - mean_squared_error: 0.0011 - val_loss: 0.0014 - val_mean_squared_error: 0.0014
+Epoch 17/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:08:57.226206: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:09:01.165698: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:09:04.224509: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:09:07.183893: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0011 - mean_squared_error: 0.0011WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:09:38.040677: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:09:41.227549: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:09:44.398733: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:09:47.521524: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00017: mean_squared_error improved from 0.00113 to 0.00112, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 170ms/step - loss: 0.0011 - mean_squared_error: 0.0011 - val_loss: 0.0012 - val_mean_squared_error: 0.0012
+Epoch 18/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:10:03.706342: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:10:06.870485: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:10:10.002882: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:10:13.037032: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0011 - mean_squared_error: 0.0011WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:10:44.548421: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:10:47.706571: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:10:50.856117: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:10:54.407932: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00018: mean_squared_error improved from 0.00112 to 0.00107, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 55s 176ms/step - loss: 0.0011 - mean_squared_error: 0.0011 - val_loss: 0.0013 - val_mean_squared_error: 0.0013
+Epoch 19/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:11:11.414478: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:11:14.439644: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:11:17.572027: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:11:20.609288: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0010 - mean_squared_error: 0.0010WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:11:52.343374: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:11:55.518507: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:11:58.688728: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:12:01.820158: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00019: mean_squared_error improved from 0.00107 to 0.00102, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 172ms/step - loss: 0.0010 - mean_squared_error: 0.0010 - val_loss: 0.0011 - val_mean_squared_error: 0.0011
+Epoch 20/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:12:17.628581: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:12:20.614392: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:12:23.735475: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:12:26.767499: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 0.0010 - mean_squared_error: 0.0010WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:12:58.239659: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:13:01.416625: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:13:04.606570: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:13:07.694433: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00020: mean_squared_error improved from 0.00102 to 0.00100, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 0.0010 - mean_squared_error: 0.0010 - val_loss: 0.0010 - val_mean_squared_error: 0.0010
+Epoch 21/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:13:23.687165: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:13:26.843910: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:13:29.950768: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:13:32.984462: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 9.7037e-04 - mean_squared_error: 9.7037e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:14:05.981154: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:14:09.629459: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:14:12.842065: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:14:16.028325: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00021: mean_squared_error improved from 0.00100 to 0.00097, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 56s 178ms/step - loss: 9.7037e-04 - mean_squared_error: 9.7037e-04 - val_loss: 0.0011 - val_mean_squared_error: 0.0011
+Epoch 22/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:14:31.888706: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:14:35.075066: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:14:38.129779: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:14:41.142976: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 9.4577e-04 - mean_squared_error: 9.4577e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:15:12.015776: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:15:15.215007: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:15:18.433409: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:15:21.617379: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00022: mean_squared_error improved from 0.00097 to 0.00095, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 170ms/step - loss: 9.4577e-04 - mean_squared_error: 9.4577e-04 - val_loss: 0.0011 - val_mean_squared_error: 0.0011
+Epoch 23/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:15:37.620116: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:15:40.763785: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:15:43.927868: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:15:47.012487: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.8570e-04 - mean_squared_error: 8.8570e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:16:18.600927: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:16:21.777979: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:16:24.967821: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:16:28.085922: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00023: mean_squared_error improved from 0.00095 to 0.00089, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 8.8570e-04 - mean_squared_error: 8.8570e-04 - val_loss: 0.0011 - val_mean_squared_error: 0.0011
+Epoch 24/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:16:44.591944: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:16:47.785794: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:16:50.925066: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:16:53.966810: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.9103e-04 - mean_squared_error: 8.9103e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:17:25.294665: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:17:28.463038: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:17:31.779923: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:17:34.927743: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00024: mean_squared_error did not improve from 0.00089
+312/312 [==============================] - 52s 165ms/step - loss: 8.9103e-04 - mean_squared_error: 8.9103e-04 - val_loss: 0.0011 - val_mean_squared_error: 0.0011
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 25/100
+2021-03-22 20:17:48.909900: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:17:51.890992: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:17:55.040504: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:17:58.078498: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.5898e-04 - mean_squared_error: 8.5898e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:18:30.047669: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:18:33.214825: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:18:36.369358: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:18:39.532052: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00025: mean_squared_error improved from 0.00089 to 0.00086, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 8.5898e-04 - mean_squared_error: 8.5898e-04 - val_loss: 9.5692e-04 - val_mean_squared_error: 9.5692e-04
+Epoch 26/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:18:55.491014: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:18:58.636606: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:19:01.716183: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:19:04.818649: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.4593e-04 - mean_squared_error: 8.4593e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:19:42.249985: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:19:46.497550: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:19:49.970801: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:19:53.503648: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00026: mean_squared_error improved from 0.00086 to 0.00085, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 62s 198ms/step - loss: 8.4593e-04 - mean_squared_error: 8.4593e-04 - val_loss: 0.0011 - val_mean_squared_error: 0.0011
+Epoch 27/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:20:10.013457: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:20:13.484221: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:20:16.880730: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:20:20.125963: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.2504e-04 - mean_squared_error: 8.2504e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:20:54.177544: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:20:57.799456: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:21:01.403438: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:21:04.885120: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00027: mean_squared_error improved from 0.00085 to 0.00083, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 57s 184ms/step - loss: 8.2504e-04 - mean_squared_error: 8.2504e-04 - val_loss: 8.8660e-04 - val_mean_squared_error: 8.8660e-04
+Epoch 28/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:21:21.346440: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:21:24.805676: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:21:28.284263: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:21:31.633601: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.1175e-04 - mean_squared_error: 8.1175e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:22:04.465817: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:22:07.615147: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:22:10.775040: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:22:13.917261: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00028: mean_squared_error improved from 0.00083 to 0.00081, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 55s 176ms/step - loss: 8.1175e-04 - mean_squared_error: 8.1175e-04 - val_loss: 9.1293e-04 - val_mean_squared_error: 9.1293e-04
+Epoch 29/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:22:30.061345: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:22:33.180881: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:22:36.238520: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:22:39.232418: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 8.1305e-04 - mean_squared_error: 8.1305e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:23:11.620027: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:23:14.757545: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:23:17.920076: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:23:21.043276: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00029: mean_squared_error did not improve from 0.00081
+312/312 [==============================] - 53s 168ms/step - loss: 8.1305e-04 - mean_squared_error: 8.1305e-04 - val_loss: 9.0525e-04 - val_mean_squared_error: 9.0525e-04
+Epoch 30/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:23:34.959950: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:23:38.070456: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:23:41.185394: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:23:44.220400: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 7.8315e-04 - mean_squared_error: 7.8315e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:24:15.784367: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:24:18.929741: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:24:22.062002: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:24:25.227717: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00030: mean_squared_error improved from 0.00081 to 0.00078, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+
+Epoch 00030: ReduceLROnPlateau reducing learning rate to 4.999999873689376e-05.
+312/312 [==============================] - 54s 172ms/step - loss: 7.8315e-04 - mean_squared_error: 7.8315e-04 - val_loss: 9.1125e-04 - val_mean_squared_error: 9.1125e-04
+Epoch 31/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:24:41.371960: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:24:44.484528: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:24:47.584299: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:24:50.592060: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 6.6311e-04 - mean_squared_error: 6.6311e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:25:22.032541: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:25:25.185458: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:25:28.317992: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:25:31.428744: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00031: mean_squared_error improved from 0.00078 to 0.00066, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 6.6311e-04 - mean_squared_error: 6.6311e-04 - val_loss: 8.1123e-04 - val_mean_squared_error: 8.1123e-04
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 32/100
+2021-03-22 20:25:47.133625: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:25:50.207167: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:25:53.416527: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:25:56.413656: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 6.4279e-04 - mean_squared_error: 6.4279e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:26:27.832370: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:26:31.018180: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:26:34.203828: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:26:37.368687: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00032: mean_squared_error improved from 0.00066 to 0.00064, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 172ms/step - loss: 6.4279e-04 - mean_squared_error: 6.4279e-04 - val_loss: 7.8392e-04 - val_mean_squared_error: 7.8392e-04
+Epoch 33/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:26:53.335272: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:26:56.424389: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:26:59.478073: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:27:02.502331: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 6.2026e-04 - mean_squared_error: 6.2026e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:27:34.403859: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:27:37.611144: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:27:40.804666: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:27:43.928214: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00033: mean_squared_error improved from 0.00064 to 0.00062, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 6.2026e-04 - mean_squared_error: 6.2026e-04 - val_loss: 7.6312e-04 - val_mean_squared_error: 7.6312e-04
+Epoch 34/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:27:59.979431: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:28:03.155492: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:28:06.243909: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:28:09.293212: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 6.2448e-04 - mean_squared_error: 6.2448e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:28:43.149755: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:28:46.950593: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:28:50.817606: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:28:54.517574: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00034: mean_squared_error did not improve from 0.00062
+312/312 [==============================] - 56s 180ms/step - loss: 6.2448e-04 - mean_squared_error: 6.2448e-04 - val_loss: 7.8062e-04 - val_mean_squared_error: 7.8062e-04
+Epoch 35/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:29:09.061190: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:29:12.454836: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:29:16.233548: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:29:19.830760: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 6.3009e-04 - mean_squared_error: 6.3009e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:29:54.676046: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:29:58.547213: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:30:02.416130: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:30:06.118705: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00035: mean_squared_error did not improve from 0.00062
+312/312 [==============================] - 57s 182ms/step - loss: 6.3009e-04 - mean_squared_error: 6.3009e-04 - val_loss: 7.9684e-04 - val_mean_squared_error: 7.9684e-04
+Epoch 36/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:30:20.690815: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:30:24.042867: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:30:27.396869: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:30:30.805956: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 6.0477e-04 - mean_squared_error: 6.0477e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:31:05.922012: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:31:09.777261: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:31:13.561054: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:31:17.211195: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00036: mean_squared_error improved from 0.00062 to 0.00060, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+
+Epoch 00036: ReduceLROnPlateau reducing learning rate to 2.499999936844688e-05.
+312/312 [==============================] - 60s 191ms/step - loss: 6.0477e-04 - mean_squared_error: 6.0477e-04 - val_loss: 7.9294e-04 - val_mean_squared_error: 7.9294e-04
+Epoch 37/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:31:34.166835: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:31:37.932725: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:31:41.704571: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:31:45.269273: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.5978e-04 - mean_squared_error: 5.5978e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:32:19.796452: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:32:23.767532: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:32:27.608420: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:32:31.343686: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00037: mean_squared_error improved from 0.00060 to 0.00056, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 59s 189ms/step - loss: 5.5978e-04 - mean_squared_error: 5.5978e-04 - val_loss: 7.4207e-04 - val_mean_squared_error: 7.4207e-04
+Epoch 38/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:32:48.336750: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:32:52.096972: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:32:55.738291: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:32:59.277225: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.4258e-04 - mean_squared_error: 5.4258e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:33:35.671106: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:33:40.065426: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:33:43.888847: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:33:47.499850: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00038: mean_squared_error improved from 0.00056 to 0.00054, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 61s 195ms/step - loss: 5.4258e-04 - mean_squared_error: 5.4258e-04 - val_loss: 7.1951e-04 - val_mean_squared_error: 7.1951e-04
+Epoch 39/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:34:04.112691: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:34:07.833294: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:34:11.492217: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:34:15.057927: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.3824e-04 - mean_squared_error: 5.3824e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:34:49.950086: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:34:53.850328: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:34:57.719385: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:35:01.362889: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00039: mean_squared_error improved from 0.00054 to 0.00054, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 59s 190ms/step - loss: 5.3824e-04 - mean_squared_error: 5.3824e-04 - val_loss: 7.7479e-04 - val_mean_squared_error: 7.7479e-04
+Epoch 40/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:35:18.390124: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:35:22.206812: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:35:25.878766: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:35:29.416596: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.4015e-04 - mean_squared_error: 5.4015e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:36:04.691204: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:36:08.612325: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:36:12.384131: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:36:16.065787: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00040: mean_squared_error did not improve from 0.00054
+312/312 [==============================] - 57s 184ms/step - loss: 5.4015e-04 - mean_squared_error: 5.4015e-04 - val_loss: 7.2430e-04 - val_mean_squared_error: 7.2430e-04
+Epoch 41/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:36:30.704373: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:36:34.373248: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:36:38.050475: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:36:41.565656: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.2769e-04 - mean_squared_error: 5.2769e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:37:16.341501: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:37:20.168767: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:37:23.932936: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:37:27.663869: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00041: mean_squared_error improved from 0.00054 to 0.00053, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 59s 189ms/step - loss: 5.2769e-04 - mean_squared_error: 5.2769e-04 - val_loss: 7.3077e-04 - val_mean_squared_error: 7.3077e-04
+Epoch 42/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:37:44.503319: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:37:48.204909: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:37:51.825993: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:37:55.312129: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.3659e-04 - mean_squared_error: 5.3659e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:38:29.840325: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:38:33.740904: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:38:37.522577: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:38:41.238423: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00042: mean_squared_error did not improve from 0.00053
+
+Epoch 00042: ReduceLROnPlateau reducing learning rate to 1.249999968422344e-05.
+312/312 [==============================] - 57s 181ms/step - loss: 5.3659e-04 - mean_squared_error: 5.3659e-04 - val_loss: 7.4242e-04 - val_mean_squared_error: 7.4242e-04
+Epoch 43/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:38:55.780502: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:38:59.497868: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:39:03.242449: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:39:06.784357: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.0771e-04 - mean_squared_error: 5.0771e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:39:41.550154: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:39:45.368995: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:39:49.153284: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:39:52.782553: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00043: mean_squared_error improved from 0.00053 to 0.00051, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 59s 190ms/step - loss: 5.0771e-04 - mean_squared_error: 5.0771e-04 - val_loss: 7.1594e-04 - val_mean_squared_error: 7.1594e-04
+Epoch 44/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:40:10.116132: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:40:13.834518: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:40:17.378757: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:40:20.817605: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 5.0061e-04 - mean_squared_error: 5.0061e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:40:56.177763: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:41:00.043620: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:41:03.860912: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:41:07.546411: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00044: mean_squared_error improved from 0.00051 to 0.00050, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 60s 191ms/step - loss: 5.0061e-04 - mean_squared_error: 5.0061e-04 - val_loss: 7.1807e-04 - val_mean_squared_error: 7.1807e-04
+Epoch 45/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:41:24.198100: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:41:27.926671: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:41:31.656231: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:41:35.286150: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.8988e-04 - mean_squared_error: 4.8988e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:42:09.772970: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:42:13.557896: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:42:17.543045: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:42:21.303130: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00045: mean_squared_error improved from 0.00050 to 0.00049, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 59s 189ms/step - loss: 4.8988e-04 - mean_squared_error: 4.8988e-04 - val_loss: 7.2147e-04 - val_mean_squared_error: 7.2147e-04
+Epoch 46/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:42:38.033196: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:42:41.368531: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:42:44.677251: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:42:48.016852: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.8786e-04 - mean_squared_error: 4.8786e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:43:20.792404: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:43:23.928713: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:43:27.112473: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:43:30.343701: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00046: mean_squared_error improved from 0.00049 to 0.00049, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 55s 175ms/step - loss: 4.8786e-04 - mean_squared_error: 4.8786e-04 - val_loss: 7.1263e-04 - val_mean_squared_error: 7.1263e-04
+Epoch 47/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:43:46.331119: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:43:49.484258: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:43:52.636601: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:43:55.670879: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.8821e-04 - mean_squared_error: 4.8821e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:44:27.751131: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:44:30.943207: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:44:34.133231: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:44:37.302704: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00047: mean_squared_error did not improve from 0.00049
+
+Epoch 00047: ReduceLROnPlateau reducing learning rate to 6.24999984211172e-06.
+312/312 [==============================] - 52s 167ms/step - loss: 4.8821e-04 - mean_squared_error: 4.8821e-04 - val_loss: 7.0473e-04 - val_mean_squared_error: 7.0473e-04
+Epoch 48/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:44:51.332365: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:44:54.376873: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:44:57.476350: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:45:00.516744: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.8171e-04 - mean_squared_error: 4.8171e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:45:32.293453: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:45:35.462426: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:45:38.641330: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:45:41.789907: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00048: mean_squared_error improved from 0.00049 to 0.00048, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 4.8171e-04 - mean_squared_error: 4.8171e-04 - val_loss: 7.1009e-04 - val_mean_squared_error: 7.1009e-04
+Epoch 49/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:45:57.842518: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:46:01.009301: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:46:04.076818: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:46:07.094047: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.7818e-04 - mean_squared_error: 4.7818e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:46:38.814158: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:46:41.981619: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:46:45.173234: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:46:48.304938: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00049: mean_squared_error improved from 0.00048 to 0.00048, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 4.7818e-04 - mean_squared_error: 4.7818e-04 - val_loss: 7.2260e-04 - val_mean_squared_error: 7.2260e-04
+Epoch 50/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:47:04.444877: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:47:07.594029: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:47:10.660216: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:47:13.658807: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.7096e-04 - mean_squared_error: 4.7096e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:47:45.165053: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:47:48.346020: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:47:51.553637: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:47:54.662084: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00050: mean_squared_error improved from 0.00048 to 0.00047, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 4.7096e-04 - mean_squared_error: 4.7096e-04 - val_loss: 7.1122e-04 - val_mean_squared_error: 7.1122e-04
+Epoch 51/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:48:10.477372: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:48:13.662144: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:48:16.758879: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:48:19.783388: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.7303e-04 - mean_squared_error: 4.7303e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:48:51.072163: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:48:54.241074: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:48:57.422236: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:49:00.559116: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00051: mean_squared_error did not improve from 0.00047
+312/312 [==============================] - 51s 165ms/step - loss: 4.7303e-04 - mean_squared_error: 4.7303e-04 - val_loss: 6.9081e-04 - val_mean_squared_error: 6.9081e-04
+Epoch 52/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:49:14.558405: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:49:17.412188: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:49:20.580992: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:49:23.640714: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.7101e-04 - mean_squared_error: 4.7101e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:49:55.767291: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:49:58.933193: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:50:02.134475: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:50:05.279509: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00052: mean_squared_error did not improve from 0.00047
+
+Epoch 00052: ReduceLROnPlateau reducing learning rate to 3.12499992105586e-06.
+312/312 [==============================] - 52s 167ms/step - loss: 4.7101e-04 - mean_squared_error: 4.7101e-04 - val_loss: 7.3270e-04 - val_mean_squared_error: 7.3270e-04
+Epoch 53/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:50:19.244601: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:50:22.100712: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:50:25.106702: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:50:28.204374: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.6226e-04 - mean_squared_error: 4.6226e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:50:59.505308: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:51:02.695346: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:51:05.874714: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:51:09.028710: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00053: mean_squared_error improved from 0.00047 to 0.00046, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 4.6226e-04 - mean_squared_error: 4.6226e-04 - val_loss: 6.9937e-04 - val_mean_squared_error: 6.9937e-04
+Epoch 54/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:51:25.004108: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:51:28.227035: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:51:31.294467: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:51:34.303652: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.6775e-04 - mean_squared_error: 4.6775e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:52:05.580340: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:52:08.756675: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:52:11.944659: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:52:15.125089: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00054: mean_squared_error did not improve from 0.00046
+312/312 [==============================] - 51s 164ms/step - loss: 4.6775e-04 - mean_squared_error: 4.6775e-04 - val_loss: 6.9044e-04 - val_mean_squared_error: 6.9044e-04
+Epoch 55/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:52:29.147363: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:52:32.004784: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:52:35.082703: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:52:38.200863: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.5538e-04 - mean_squared_error: 4.5538e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:53:10.275844: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:53:13.473193: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:53:16.659073: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:53:19.774536: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00055: mean_squared_error improved from 0.00046 to 0.00046, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 4.5538e-04 - mean_squared_error: 4.5538e-04 - val_loss: 6.8616e-04 - val_mean_squared_error: 6.8616e-04
+Epoch 56/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:53:35.537247: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:53:38.630096: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:53:41.725027: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:53:44.735293: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.5165e-04 - mean_squared_error: 4.5165e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:54:16.171554: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:54:19.343884: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:54:22.484728: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:54:25.541509: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00056: mean_squared_error improved from 0.00046 to 0.00045, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 4.5165e-04 - mean_squared_error: 4.5165e-04 - val_loss: 6.9682e-04 - val_mean_squared_error: 6.9682e-04
+Epoch 57/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:54:41.401238: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:54:44.262965: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:54:47.168292: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:54:50.014211: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.6297e-04 - mean_squared_error: 4.6297e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:55:21.140233: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:55:24.324915: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:55:27.514173: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:55:30.605929: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00057: mean_squared_error did not improve from 0.00045
+312/312 [==============================] - 51s 164ms/step - loss: 4.6297e-04 - mean_squared_error: 4.6297e-04 - val_loss: 6.8493e-04 - val_mean_squared_error: 6.8493e-04
+Epoch 58/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:55:44.606214: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:55:47.651446: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:55:50.845048: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:55:54.077076: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.5574e-04 - mean_squared_error: 4.5574e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:56:25.527283: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:56:28.723440: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:56:31.896784: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:56:35.055620: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00058: mean_squared_error did not improve from 0.00045
+312/312 [==============================] - 51s 165ms/step - loss: 4.5574e-04 - mean_squared_error: 4.5574e-04 - val_loss: 6.8838e-04 - val_mean_squared_error: 6.8838e-04
+Epoch 59/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:56:48.987000: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:56:51.834080: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:56:54.986014: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:56:58.125778: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.5111e-04 - mean_squared_error: 4.5111e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:57:29.210557: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:57:32.409673: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:57:35.569262: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:57:38.675920: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00059: mean_squared_error improved from 0.00045 to 0.00045, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 170ms/step - loss: 4.5111e-04 - mean_squared_error: 4.5111e-04 - val_loss: 6.8906e-04 - val_mean_squared_error: 6.8906e-04
+Epoch 60/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:57:54.844843: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:57:57.991660: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:58:01.103192: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:58:04.115611: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.5725e-04 - mean_squared_error: 4.5725e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:58:34.996470: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:58:38.174652: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:58:41.330828: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:58:44.480198: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00060: mean_squared_error did not improve from 0.00045
+
+Epoch 00060: ReduceLROnPlateau reducing learning rate to 1.56249996052793e-06.
+312/312 [==============================] - 51s 163ms/step - loss: 4.5725e-04 - mean_squared_error: 4.5725e-04 - val_loss: 6.8758e-04 - val_mean_squared_error: 6.8758e-04
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 61/100
+2021-03-22 20:58:58.526283: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:59:01.398457: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:59:04.579784: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:59:07.675426: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4907e-04 - mean_squared_error: 4.4907e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 20:59:39.208445: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:59:42.377332: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:59:45.545637: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 20:59:48.626235: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00061: mean_squared_error improved from 0.00045 to 0.00045, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 172ms/step - loss: 4.4907e-04 - mean_squared_error: 4.4907e-04 - val_loss: 6.9116e-04 - val_mean_squared_error: 6.9116e-04
+Epoch 62/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:00:04.649255: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:00:07.538025: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:00:10.361631: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:00:13.188784: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.5461e-04 - mean_squared_error: 4.5461e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:00:44.411235: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:00:47.610764: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:00:50.757788: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:00:53.827628: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00062: mean_squared_error did not improve from 0.00045
+312/312 [==============================] - 51s 164ms/step - loss: 4.5461e-04 - mean_squared_error: 4.5461e-04 - val_loss: 6.8313e-04 - val_mean_squared_error: 6.8313e-04
+Epoch 63/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:01:07.848800: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:01:11.008669: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:01:14.162818: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:01:17.323904: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4882e-04 - mean_squared_error: 4.4882e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:01:48.508300: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:01:51.892797: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:01:55.080151: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:01:58.195552: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00063: mean_squared_error improved from 0.00045 to 0.00045, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 172ms/step - loss: 4.4882e-04 - mean_squared_error: 4.4882e-04 - val_loss: 6.9164e-04 - val_mean_squared_error: 6.9164e-04
+Epoch 64/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:02:14.446969: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:02:17.632884: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:02:20.756041: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:02:23.933724: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4595e-04 - mean_squared_error: 4.4595e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:02:55.008543: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:02:58.169674: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:03:01.376528: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:03:04.595093: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00064: mean_squared_error improved from 0.00045 to 0.00045, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 170ms/step - loss: 4.4595e-04 - mean_squared_error: 4.4595e-04 - val_loss: 6.8431e-04 - val_mean_squared_error: 6.8431e-04
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 65/100
+2021-03-22 21:03:20.536990: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:03:23.697831: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:03:26.733101: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:03:29.730187: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4875e-04 - mean_squared_error: 4.4875e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:04:00.772139: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:04:03.962699: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:04:07.090202: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:04:10.295017: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00065: mean_squared_error did not improve from 0.00045
+
+Epoch 00065: ReduceLROnPlateau reducing learning rate to 9e-07.
+312/312 [==============================] - 51s 164ms/step - loss: 4.4875e-04 - mean_squared_error: 4.4875e-04 - val_loss: 6.8744e-04 - val_mean_squared_error: 6.8744e-04
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 66/100
+2021-03-22 21:04:24.299516: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:04:27.146620: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:04:29.985827: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:04:32.848407: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4575e-04 - mean_squared_error: 4.4575e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:05:04.266241: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:05:07.434912: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:05:10.581270: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:05:13.765833: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00066: mean_squared_error improved from 0.00045 to 0.00045, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 171ms/step - loss: 4.4575e-04 - mean_squared_error: 4.4575e-04 - val_loss: 6.8410e-04 - val_mean_squared_error: 6.8410e-04
+Epoch 67/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:05:29.582592: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:05:32.747613: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:05:35.809670: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:05:38.800003: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4614e-04 - mean_squared_error: 4.4614e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:06:11.568645: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:06:15.251108: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:06:18.437809: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:06:21.502271: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00067: mean_squared_error did not improve from 0.00045
+312/312 [==============================] - 53s 171ms/step - loss: 4.4614e-04 - mean_squared_error: 4.4614e-04 - val_loss: 6.8358e-04 - val_mean_squared_error: 6.8358e-04
+Epoch 68/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:06:35.513520: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:06:38.334600: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:06:41.165385: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:06:44.013129: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4303e-04 - mean_squared_error: 4.4303e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:07:15.659716: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:07:18.807638: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:07:21.973554: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:07:25.092212: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00068: mean_squared_error improved from 0.00045 to 0.00044, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 172ms/step - loss: 4.4303e-04 - mean_squared_error: 4.4303e-04 - val_loss: 6.8823e-04 - val_mean_squared_error: 6.8823e-04
+Epoch 69/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:07:41.011253: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:07:43.975889: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:07:47.082820: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:07:50.087136: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4743e-04 - mean_squared_error: 4.4743e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:08:21.170310: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:08:24.343273: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:08:27.487701: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:08:30.647793: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00069: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 51s 164ms/step - loss: 4.4743e-04 - mean_squared_error: 4.4743e-04 - val_loss: 6.8389e-04 - val_mean_squared_error: 6.8389e-04
+Epoch 70/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:08:44.650729: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:08:47.506610: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:08:50.352095: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:08:53.310623: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4632e-04 - mean_squared_error: 4.4632e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:09:25.157884: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:09:28.352204: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:09:31.498861: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:09:34.673140: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00070: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 167ms/step - loss: 4.4632e-04 - mean_squared_error: 4.4632e-04 - val_loss: 6.8215e-04 - val_mean_squared_error: 6.8215e-04
+Epoch 71/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:09:48.792350: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:09:51.904557: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:09:55.049892: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:09:58.129682: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.3862e-04 - mean_squared_error: 4.3862e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:10:29.193924: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:10:32.378206: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:10:35.578211: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:10:38.708260: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00071: mean_squared_error improved from 0.00044 to 0.00044, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 53s 170ms/step - loss: 4.3862e-04 - mean_squared_error: 4.3862e-04 - val_loss: 6.8424e-04 - val_mean_squared_error: 6.8424e-04
+Epoch 72/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:10:54.538898: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:10:57.391699: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:11:00.236649: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:11:03.112397: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4505e-04 - mean_squared_error: 4.4505e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:11:34.505868: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:11:37.707251: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:11:40.879687: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:11:44.051937: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00072: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 165ms/step - loss: 4.4505e-04 - mean_squared_error: 4.4505e-04 - val_loss: 6.8409e-04 - val_mean_squared_error: 6.8409e-04
+Epoch 73/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:11:58.062387: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:12:00.924091: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:12:03.860202: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:12:06.762975: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4522e-04 - mean_squared_error: 4.4522e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:12:38.064316: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:12:41.327015: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:12:44.512029: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:12:47.661130: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00073: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 165ms/step - loss: 4.4522e-04 - mean_squared_error: 4.4522e-04 - val_loss: 6.8667e-04 - val_mean_squared_error: 6.8667e-04
+Epoch 74/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:13:01.751943: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:13:04.637255: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:13:07.817976: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:13:10.898059: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.3841e-04 - mean_squared_error: 4.3841e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:13:42.500376: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:13:45.734969: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:13:49.031262: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:13:52.194971: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00074: mean_squared_error improved from 0.00044 to 0.00044, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 172ms/step - loss: 4.3841e-04 - mean_squared_error: 4.3841e-04 - val_loss: 6.8302e-04 - val_mean_squared_error: 6.8302e-04
+Epoch 75/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:14:08.101501: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:14:10.974203: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:14:13.808004: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:14:16.640975: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4249e-04 - mean_squared_error: 4.4249e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:14:47.985385: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:14:51.183214: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:14:54.353668: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:14:57.501129: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00075: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 165ms/step - loss: 4.4249e-04 - mean_squared_error: 4.4249e-04 - val_loss: 6.8612e-04 - val_mean_squared_error: 6.8612e-04
+Epoch 76/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:15:11.541635: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:15:14.438465: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:15:17.587717: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:15:20.656015: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4417e-04 - mean_squared_error: 4.4417e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:15:51.857921: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:15:55.128171: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:15:58.316089: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:16:01.526681: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00076: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 51s 165ms/step - loss: 4.4417e-04 - mean_squared_error: 4.4417e-04 - val_loss: 6.8163e-04 - val_mean_squared_error: 6.8163e-04
+Epoch 77/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:16:15.607533: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:16:18.467351: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:16:21.319333: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:16:24.168713: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4302e-04 - mean_squared_error: 4.4302e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:16:55.640568: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:16:58.835681: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:17:02.047974: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:17:05.159539: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00077: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 166ms/step - loss: 4.4302e-04 - mean_squared_error: 4.4302e-04 - val_loss: 6.8482e-04 - val_mean_squared_error: 6.8482e-04
+Epoch 78/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:17:19.264929: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:17:22.197874: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:17:25.236639: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:17:28.420430: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4554e-04 - mean_squared_error: 4.4554e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:18:00.088187: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:18:03.313517: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:18:06.513791: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:18:09.686436: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00078: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 166ms/step - loss: 4.4554e-04 - mean_squared_error: 4.4554e-04 - val_loss: 6.8274e-04 - val_mean_squared_error: 6.8274e-04
+Epoch 79/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:18:23.814110: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:18:26.672359: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:18:29.530194: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:18:32.391882: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.3732e-04 - mean_squared_error: 4.3732e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:19:04.139551: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:19:07.315498: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:19:10.565283: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:19:13.696635: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00079: mean_squared_error improved from 0.00044 to 0.00044, saving model to ../../models/vgg19/new\train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model
+312/312 [==============================] - 54s 173ms/step - loss: 4.3732e-04 - mean_squared_error: 4.3732e-04 - val_loss: 6.8410e-04 - val_mean_squared_error: 6.8410e-04
+Epoch 80/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:19:29.598769: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:19:32.439866: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:19:35.309552: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:19:38.134359: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4081e-04 - mean_squared_error: 4.4081e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:20:09.309171: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:20:12.506271: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:20:15.693062: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:20:18.844674: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00080: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 51s 165ms/step - loss: 4.4081e-04 - mean_squared_error: 4.4081e-04 - val_loss: 6.7996e-04 - val_mean_squared_error: 6.7996e-04
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+Epoch 81/100
+2021-03-22 21:20:32.959043: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:20:35.815983: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:20:38.647000: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:20:41.508952: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.3745e-04 - mean_squared_error: 4.3745e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:21:13.267033: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:21:16.432157: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:21:19.600076: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:21:22.690801: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00081: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 166ms/step - loss: 4.3745e-04 - mean_squared_error: 4.3745e-04 - val_loss: 6.8130e-04 - val_mean_squared_error: 6.8130e-04
+Epoch 82/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:21:36.665480: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:21:39.548656: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:21:42.762265: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:21:45.827222: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4697e-04 - mean_squared_error: 4.4697e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:22:17.548023: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:22:20.686391: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:22:23.877422: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:22:26.988297: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00082: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 52s 166ms/step - loss: 4.4697e-04 - mean_squared_error: 4.4697e-04 - val_loss: 6.8114e-04 - val_mean_squared_error: 6.8114e-04
+Epoch 83/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:22:41.133346: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:22:44.012265: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:22:46.827081: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:22:49.671631: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4220e-04 - mean_squared_error: 4.4220e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:23:22.096440: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:23:25.354235: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:23:28.931044: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:23:32.424861: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00083: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 54s 171ms/step - loss: 4.4220e-04 - mean_squared_error: 4.4220e-04 - val_loss: 6.8120e-04 - val_mean_squared_error: 6.8120e-04
+Epoch 84/100
+WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:23:46.591855: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:23:49.885948: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:23:53.235683: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:23:56.320076: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+312/312 [==============================] - ETA: 0s - loss: 4.4183e-04 - mean_squared_error: 4.4183e-04WARNING:tensorflow:multiprocessing can interact badly with TensorFlow, causing nondeterministic deadlocks. For high performance data pipelines tf.data is recommended.
+2021-03-22 21:24:28.085603: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:24:31.508262: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:24:35.001452: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2021-03-22 21:24:38.442442: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+
+Epoch 00084: mean_squared_error did not improve from 0.00044
+312/312 [==============================] - 53s 170ms/step - loss: 4.4183e-04 - mean_squared_error: 4.4183e-04 - val_loss: 6.8030e-04 - val_mean_squared_error: 6.8030e-04
+Epoch 00084: early stopping
+Temps d execution : 5649.823867559433 secondes ---
+2021-03-22 21:24:52.339403: W tensorflow/core/kernels/data/generator_dataset_op.cc:103] Error occurred when finalizing GeneratorDataset iterator: Failed precondition: Python interpreter state is not initialized. The process may be terminated.
+	 [[{{node PyFunc}}]]
+
+Process finished with exit code 0
