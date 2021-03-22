@@ -10,7 +10,7 @@ import os.path
 class BatchGeneratorSupervised(Sequence):
     def __init__(self, batch_size, training_size, data_list, classes, shuffle=True, image_normalization_fn=None,
                  label_normalization_fn=None, img_aug_conf=None,
-                 encoding_fn=None):
+                 encoding_fn=None, preprocess_pred=False):
         self.batch_size = batch_size
         self.training_size = training_size
         self.data_list = data_list

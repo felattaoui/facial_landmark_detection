@@ -8,6 +8,7 @@ import src.utils.config as config
 
 import src.utils.plot_points_on_faces as plot_points
 import time
+import tensorflow as tf
 
 test_txt_file = 'C:\\Users\\MS_BGD\\PycharmProjects\\facial_landmark_detection\\data\\valid_5000_5FP.txt'
 image_dir = r'../../data/'
@@ -26,24 +27,23 @@ test_data_list = fp_utils.load_txt_5FP_and_box(config.cfg.TRAIN_PATH.VAL_TXT_FIL
 print("predict generator")
 img_aug_conf_valid = iaa.Sequential([fp_utils.RedefineBoxes()], random_order=False)
 
-img_aug_conf_valid_unsup = iaa.Sequential([fp_utils.RedefineBoxes()], random_order=False)
-
 
 print("test generator")
 val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.BATCH_SIZE,
                                              training_size=config.cfg.TRAIN_PARAM.TRAINING_SIZE,
                                              data_list=test_data_list,
                                              classes=CLASSES,
-                                             shuffle=True,
+                                             shuffle=False,
                                              image_normalization_fn=fp_utils.normalize_image,
                                              label_normalization_fn=fp_utils.normalize_label,
                                              img_aug_conf=img_aug_conf_valid,
-                                             encoding_fn=fp_utils.encode_5FP
+                                             encoding_fn=fp_utils.encode_5FP,
+                                             preprocess_pred = True
                                              )
 
 
 
-def load_my_model(path = "../../models/vgg19/new/train_supervised_2021_03_21_16_27_38_10000_valid_5000.keras.model"):
+def load_my_model(path = "../../models/mobilenet_v2/new/train_supervised_2021_03_21_23_31_25_10000_valid_5000.keras.model"):
     model = load_model(path)
     return model
 

@@ -57,7 +57,7 @@ def train(workers):
                                                    data_list=train_data_list,
                                                    classes=classes,
                                                    shuffle=True,
-                                                   # image_normalization_fn=utils.normalize_image,
+                                                   image_normalization_fn=utils.normalize_image,
                                                    label_normalization_fn=utils.normalize_label,
                                                    img_aug_conf=img_aug_conf,
                                                    encoding_fn=utils.encode_5FP
@@ -68,7 +68,7 @@ def train(workers):
                                                  data_list=val_data_list,
                                                  classes=classes,
                                                  shuffle=True,
-                                                 # image_normalization_fn=utils.normalize_image,
+                                                 image_normalization_fn=utils.normalize_image,
                                                  label_normalization_fn=utils.normalize_label,
                                                  img_aug_conf=img_aug_conf_valid,
                                                  encoding_fn=utils.encode_5FP

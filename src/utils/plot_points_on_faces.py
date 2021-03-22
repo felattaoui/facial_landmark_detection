@@ -45,6 +45,12 @@ def denorm_image(matrix_image):
     matrix_image = matrix_image * 255
     return matrix_image
 
+def denorm_image2(matrix_image):
+    matrix_image = matrix_image + 1
+    matrix_image = matrix_image * 127.5
+    matrix_image = (np.ceil(matrix_image)).astype(int)
+    return matrix_image
+
 def denorm_labels(labels):
     c = np.array(10 * [1 / float(TRAINING_SIZE)])
     return labels / c
@@ -56,7 +62,7 @@ def plot_from_batch(batch, nbImages, denorm, pred = None, unsupervised=False):
         predict = None
         if pred is not None : predict = pred[i,:]
         if denorm == True :
-            image = denorm_image(image)
+            image = denorm_image2(image)
             label = denorm_labels(label)
             if pred is not None : predict = denorm_labels(predict)
         image = image.astype(np.uint8)

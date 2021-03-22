@@ -10,7 +10,6 @@ data/data_fp
 data_million/data_fp
 models/supervised/new/
 data/
-models
 .vscode
 old
 Models_dense

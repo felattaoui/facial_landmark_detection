@@ -32,27 +32,45 @@ def get_train_and_valid_file(size_of_train):
     return train_txt_file, val_txt_file
 
 
+# def mobilenet_v2_custom(num_output, training_size=96):
+#     #preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
+#     base_model = MobileNetV2(input_shape=(training_size, training_size, 3),
+#                              include_top=False,
+#                              weights='imagenet')
+#     # base_model.trainable = False
+#
+#     for layer in base_model.layers[:5]:
+#         layer.trainable = False
+#
+#     inputs = tf.keras.Input(shape=(training_size, training_size, 3))
+#     #x = preprocess_input(inputs)
+#     x = base_model(x, training=False)
+#     x = GlobalAveragePooling2D()(x)
+#     x = Dropout(0.2)(x)
+#     x = Flatten()(x)
+#     outputs = Dense(num_output, activation='linear')(x)
+#
+#     model = tf.keras.Model(inputs=inputs, outputs=outputs)
+#     model.summary()
+#
+#     return model
+
 def mobilenet_v2_custom(num_output, training_size=96):
-    preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
     base_model = MobileNetV2(input_shape=(training_size, training_size, 3),
                              include_top=False,
                              weights='imagenet')
     # base_model.trainable = False
 
-    for layer in base_model.layers[:5]:
+    for layer in base_model.layers[:3]:
         layer.trainable = False
 
-    inputs = tf.keras.Input(shape=(training_size, training_size, 3))
-    x = preprocess_input(inputs)
-    x = base_model(x, training=False)
-    x = GlobalAveragePooling2D()(x)
-    x = Dropout(0.2)(x)
-    x = Flatten()(x)
-    outputs = Dense(num_output, activation='linear')(x)
-
-    model = tf.keras.Model(inputs=inputs, outputs=outputs)
+    model = tf.keras.Sequential()
+    model.add(base_model)
+    # model.add(GlobalAveragePooling2D())
+    # model.add(Dropout(0.2))
+    model.add(Flatten())
+    model.add(Dense(num_output, activation='linear'))
     model.summary()
-
     return model
 
 
@@ -157,8 +175,14 @@ def RedefineBoxes():
         func_images=func_images_void)
 
 
+# def normalize_image(img):
+#     return img / float(255.0)
+
 def normalize_image(img):
-    return img / float(255.0)
+    # preprocess_input = tf.keras.applications.mobilenet_v2.preprocess_input
+    # img_normalized = preprocess_input(img)
+    img_normalized = img/127.5 - 1
+    return img_normalized
 
 
 def normalize_label(labels, training_size):
