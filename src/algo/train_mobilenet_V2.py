@@ -2,7 +2,7 @@ import numpy as np
 from imgaug import augmenters as iaa
 from tensorflow.python.keras import callbacks
 from tensorflow.python.keras.losses import logcosh, mean_squared_error
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam, SGD
 from tensorflow.keras.models import load_model
 import time
 import src.utils.utils as utils
@@ -129,9 +129,11 @@ def train(workers):
     if config.cfg.TRAIN_PATH.PATH_MODEL is None:
         print("model_compile")
         my_model.compile(loss=mean_squared_error, optimizer=Adam(lr=1e-4), metrics=[mean_squared_error])
+        #my_model.compile(loss=mean_squared_error, optimizer=SGD(lr=1e-4, momentum=0.9), metrics=[mean_squared_error])
         print("model_generator")
-        my_model.fit_generator(
-            generator=train_gen,
+        my_model.fit(
+            # generator=train_gen,
+            train_gen,
             validation_data=val_gen,
             steps_per_epoch=n_batches_train,
             validation_steps=n_batches_eval,

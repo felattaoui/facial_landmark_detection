@@ -98,7 +98,7 @@ class BatchGeneratorSupervised(Sequence):
         if not self.seeded:
             seed = int.from_bytes(os.urandom(4), byteorder='little')
             ia.seed(seed)
-            self.ia_conf.reseed(seed)
+            if self.ia_conf is not None: self.ia_conf.reseed(seed)  # Farid added if self.ia_conf is not None
             self.seeded = True
         sub_dl = self.data_list[idx * self.batch_size:(idx + 1) * self.batch_size:]
         images = self.load_images(self, sub_dl)

@@ -6,7 +6,7 @@ import src.utils.plot_points_on_faces as plot_points
 
 
 
-def load_my_model(path="../../models/vgg19/new/train_vgg19_2021_03_22_19_50_42_10000_valid_5000.keras.model"):
+def load_my_model(path):
     model = load_model(path)
     return model
 

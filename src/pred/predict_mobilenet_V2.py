@@ -5,7 +5,8 @@ import src.utils.config as config
 import src.utils.plot_points_on_faces as plot_points
 import time
 from src.pred.utils_predict import load_my_model, predict_and_compute_losses
-
+from src.utils.plot_points_on_faces import plot_points_on_face, from_BGR_to_RGB, denorm_image_mv2, denorm_labels
+import numpy as np
 
 CLASSES = ('face')
 
@@ -29,13 +30,35 @@ val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.B
                                              )
 
 
+# def predict_images_one_by_one(generator, model, nb_images_to_plot=1):
+#     for batch_img, batch_label in generator:
+#         for img, label in zip(batch_img, batch_label):
+#             img = from_BGR_to_RGB(img)
+#             img = denorm_image_mv2(img)
+#             img_expanded = np.expand_dims(img, axis=0)
+#             label = denorm_labels(label)
+#             pred = model.predict(img_expanded)
+#             pred = np.squeeze(pred)
+#             pred = denorm_labels(pred)
+#             plot_points_on_face(img, None, pred)
+#             break
+#         break
+#
+
+
+
+
 # Main
 if __name__ == '__main__':
     a = time.time()
-    model_path = "../../models/mobilenet_v2/new/train_supervised_2021_03_21_23_31_25_10000_valid_5000.keras.model"
+    model_path = "../../trained_models/train_mobilenet_V2_2021_03_23_00_40_09_10000_valid_5000.keras.model"
     my_model = load_my_model(model_path)
-    prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
-    print('mse', mse)
-    plot_points.plot_from_generator(val_gen, 10, prediction, True, mv2=True)
+    prediction = my_model.predict(val_gen)
+    my_model.evaluate(val_gen)
+    # prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
+
+    # print('mse', mse)
+    plot_points.plot_from_generator(val_gen, 1, prediction, True, mv2=True)
 
     print('Temps d execution en secondes :', time.time() - a)
+    # predict_images_one_by_one(val_gen, my_model)
