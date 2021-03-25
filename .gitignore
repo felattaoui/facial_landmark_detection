@@ -10,7 +10,8 @@ data/data_fp
 data_million/data_fp
 models/supervised/new/
 data/
-models
+models/mobilenet_v2
+models/vgg19
 trained_models
 .vscode
 old

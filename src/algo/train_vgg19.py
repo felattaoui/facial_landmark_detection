@@ -128,8 +128,8 @@ def train(workers):
         print("model_compile")
         my_model.compile(loss=mean_squared_error, optimizer=Adam(lr=1e-4), metrics=[mean_squared_error])
         print("model_generator")
-        my_model.fit_generator(
-            generator=train_gen,
+        my_model.fit(
+            x=train_gen,
             validation_data=val_gen,
             steps_per_epoch=n_batches_train,
             validation_steps=n_batches_eval,
@@ -143,8 +143,8 @@ def train(workers):
         )
     else:
         print("model_generator")
-        my_model.fit_generator(
-            generator=train_gen,
+        my_model.fit(
+            x=train_gen,
             validation_data=val_gen,
             steps_per_epoch=n_batches_train,
             validation_steps=n_batches_eval,

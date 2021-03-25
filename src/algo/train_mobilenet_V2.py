@@ -121,7 +121,7 @@ def train(workers):
                               write_images=False),
 
         callbacks.ReduceLROnPlateau(monitor='mean_squared_error', factor=0.5, patience=5, verbose=1, mode='min',
-                                    cooldown=0,min_lr=9e-7)
+                                    cooldown=0, min_lr=9e-7)
     ]
 
 
@@ -132,8 +132,7 @@ def train(workers):
         #my_model.compile(loss=mean_squared_error, optimizer=SGD(lr=1e-4, momentum=0.9), metrics=[mean_squared_error])
         print("model_generator")
         my_model.fit(
-            # generator=train_gen,
-            train_gen,
+            x=train_gen,
             validation_data=val_gen,
             steps_per_epoch=n_batches_train,
             validation_steps=n_batches_eval,
@@ -147,8 +146,8 @@ def train(workers):
         )
     else:
         print("model_generator")
-        my_model.fit_generator(
-            generator=train_gen,
+        my_model.fit(
+            x=train_gen,
             validation_data=val_gen,
             steps_per_epoch=n_batches_train,
             validation_steps=n_batches_eval,

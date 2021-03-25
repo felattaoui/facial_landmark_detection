@@ -7,6 +7,9 @@ import time
 from src.pred.utils_predict import load_my_model, predict_and_compute_losses
 from src.utils.plot_points_on_faces import plot_points_on_face, from_BGR_to_RGB, denorm_image_mv2, denorm_labels
 import numpy as np
+# save numpy array as csv file
+from numpy import asarray
+from numpy import savetxt
 
 CLASSES = ('face')
 
@@ -30,20 +33,30 @@ val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.B
                                              )
 
 
-# def predict_images_one_by_one(generator, model, nb_images_to_plot=1):
-#     for batch_img, batch_label in generator:
-#         for img, label in zip(batch_img, batch_label):
-#             img = from_BGR_to_RGB(img)
-#             img = denorm_image_mv2(img)
-#             img_expanded = np.expand_dims(img, axis=0)
-#             label = denorm_labels(label)
-#             pred = model.predict(img_expanded)
-#             pred = np.squeeze(pred)
-#             pred = denorm_labels(pred)
-#             plot_points_on_face(img, None, pred)
-#             break
-#         break
-#
+def predict_images_one_by_one(generator, model):
+    nb_images_plotted=0
+    total_time = 0
+    for batch_img, batch_label in generator:
+        for img, label in zip(batch_img, batch_label):
+            # print(img.shape)
+            # img = from_BGR_to_RGB(img)
+            #img = denorm_image_mv2(img)
+            # img_expanded = np.expand_dims(img, axis=0)
+            # print(img_expanded.shape)
+            # label = denorm_labels(label)
+            a = time.time()
+            img_expanded = np.expand_dims(img, axis=0)
+            pred = model.predict(img_expanded)
+            pred = np.squeeze(pred)
+            b = time.time()-a
+            total_time +=b
+            img = denorm_image_mv2(img)
+            label = denorm_labels(label)
+            pred = denorm_labels(pred)
+            img = from_BGR_to_RGB(img)
+            plot_points_on_face(img, label, pred)
+            break
+    print('total time', total_time)
 
 
 
@@ -51,14 +64,22 @@ val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.B
 # Main
 if __name__ == '__main__':
     a = time.time()
-    model_path = "../../trained_models/train_mobilenet_V2_2021_03_23_00_40_09_10000_valid_5000.keras.model"
+    model_path = "../../trained_models/train_mobilenet_V2_2021_03_23_14_17_24_10000_valid_5000.keras.model"
     my_model = load_my_model(model_path)
-    prediction = my_model.predict(val_gen)
-    my_model.evaluate(val_gen)
-    # prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
-
-    # print('mse', mse)
-    plot_points.plot_from_generator(val_gen, 1, prediction, True, mv2=True)
-
-    print('Temps d execution en secondes :', time.time() - a)
-    # predict_images_one_by_one(val_gen, my_model)
+    # prediction = my_model.predict(val_gen)
+    # my_model.evaluate(val_gen)
+    # # prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
+    #
+    # # print('mse', mse)
+    # plot_points.plot_from_generator(val_gen, 10, prediction, True, mv2=True)
+    #
+    # # define data
+    # data = asarray(prediction)
+    # # save to csv file
+    # savetxt('predict_batch_size_1.csv', data, delimiter=',')
+    # print('prediction exported')
+    #
+    #
+    #
+    # print('Temps d execution en secondes :', time.time() - a)
+    predict_images_one_by_one(val_gen, my_model)
