@@ -10,6 +10,9 @@ data/data_fp
 data_million/data_fp
 models/supervised/new/
 data/
+models/mobilenet_v2
+models/vgg19
+trained_models
 .vscode
 old
 Models_dense
