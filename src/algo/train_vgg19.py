@@ -34,13 +34,13 @@ def train(workers):
     classes = ('face')
     img_aug_conf = iaa.Sequential([
         iaa.Affine(rotate=(-35, 35)),
-        # iaa.PerspectiveTransform(scale=(0, 0.10)),
-        # iaa.CropAndPad(percent=(-0.0, -0.15)),
+        iaa.PerspectiveTransform(scale=(0, 0.10)),
+        iaa.CropAndPad(percent=(-0.0, -0.15)),
         iaa.Sometimes(0.5, utils.Fliplr_5fp()),
-        # iaa.Add((-20, +20), per_channel=True),
-        # iaa.Sometimes(0.5, iaa.GaussianBlur(sigma=(0, 0.1))),
-        # iaa.Sometimes(0.5, iaa.Grayscale(1.0)),
-        # iaa.Sharpen((0.0, 0.5)),
+        iaa.Add((-20, +20), per_channel=True),
+        iaa.Sometimes(0.5, iaa.GaussianBlur(sigma=(0, 0.1))),
+        iaa.Sometimes(0.5, iaa.Grayscale(1.0)),
+        iaa.Sharpen((0.0, 0.5)),
         utils.RedefineBoxes()
     ],
         random_order=False

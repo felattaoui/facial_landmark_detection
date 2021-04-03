@@ -34,10 +34,10 @@ from tensorflow.python.keras.layers import Input
 def train(workers):
     classes = ('face')
     img_aug_conf = iaa.Sequential([
-        iaa.Affine(rotate=(-35, 35)),
+        # iaa.Affine(rotate=(-35, 35)),
         # iaa.PerspectiveTransform(scale=(0, 0.10)),
         # iaa.CropAndPad(percent=(-0.0, -0.15)),
-        iaa.Sometimes(0.5, utils.Fliplr_5fp()),
+        # iaa.Sometimes(0.5, utils.Fliplr_5fp()),
         # iaa.Add((-20, +20), per_channel=True),
         # iaa.Sometimes(0.5, iaa.GaussianBlur(sigma=(0, 0.1))),
         # iaa.Sometimes(0.5, iaa.Grayscale(1.0)),
@@ -89,7 +89,7 @@ def train(workers):
         my_model = mobilenet_v2_custom(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size=config.cfg.
                                        TRAIN_PARAM.TRAINING_SIZE)
     else:
-        my_model = load_model(config.cfg.TRAIN_PATH.PATH_MODEL_MV2)
+        my_model = load_model(config.cfg.TRAIN_PATH.PATH_MODEL)
 
     my_model.summary()
 
@@ -129,7 +129,6 @@ def train(workers):
     if config.cfg.TRAIN_PATH.PATH_MODEL is None:
         print("model_compile")
         my_model.compile(loss=mean_squared_error, optimizer=Adam(lr=1e-4), metrics=[mean_squared_error])
-        #my_model.compile(loss=mean_squared_error, optimizer=SGD(lr=1e-4, momentum=0.9), metrics=[mean_squared_error])
         print("model_generator")
         my_model.fit(
             x=train_gen,

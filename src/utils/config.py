@@ -19,8 +19,8 @@ __C.TRAIN_PARAM.NB_EPOCH = 200
 
 # create Train Path dict
 __C.TRAIN_PATH = EasyDict()
-__C.TRAIN_PATH.MODEL_NAME_MV2 = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'../../models/mobilenet_v2/all_data_aug_imagenet')
-__C.TRAIN_PATH.MODEL_NAME_VGG19 = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'../../models/vgg19/new')
+__C.TRAIN_PATH.MODEL_NAME_MV2 = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'../../models/mobilenet_v2/100000_images_no_dataaug_imagenet')
+__C.TRAIN_PATH.MODEL_NAME_VGG19 = utils.model_name(__C.TRAIN_PARAM.DATASET_SIZE, r'../../models/vgg19/all_data_aug_imagenet/')
 __C.TRAIN_PATH.TENSORBOARD_LOGS_MV2 = __C.TRAIN_PATH.MODEL_NAME_MV2 + '.logs'
 __C.TRAIN_PATH.KERAS_MODEL_MV2 = __C.TRAIN_PATH.MODEL_NAME_MV2 + '.keras.model'
 __C.TRAIN_PATH.TENSORBOARD_LOGS_VGG19 = __C.TRAIN_PATH.MODEL_NAME_VGG19 + '.logs'

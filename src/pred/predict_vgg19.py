@@ -17,8 +17,7 @@ print("predict generator")
 img_aug_conf_valid = iaa.Sequential([utils.RedefineBoxes()], random_order=False)
 
 print("test generator")
-val_gen = sup_batch.BatchGeneratorSupervised(#batch_size=config.cfg.TRAIN_PARAM.BATCH_SIZE,
-                                             batch_size=1,
+val_gen = sup_batch.BatchGeneratorSupervised(batch_size=config.cfg.TRAIN_PARAM.BATCH_SIZE,
                                              training_size=config.cfg.TRAIN_PARAM.TRAINING_SIZE,
                                              data_list=test_data_list,
                                              classes=CLASSES,
@@ -61,10 +60,13 @@ def predict_images_one_by_one(generator, model):
 # Main
 if __name__ == '__main__':
     a = time.time()
-    model_path = "../../trained_models/train_vgg19_2021_03_23_23_23_12_10000_valid_5000.keras.model"
+    #model_path = "../../trained_models/train_vgg19_2021_03_23_23_23_12_10000_valid_5000.keras.model"
+    #model_path = "../../models/vgg19/new/train_vgg19_2021_03_29_02_24_47_10000_valid_5000.keras.model"
+    model_path = "../../models/vgg19/new/train_vgg19_2021_03_24_23_33_41_10000_valid_5000.keras.model"
     my_model = load_my_model(model_path)
-    prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
-    print('mse', mse)
-    plot_points.plot_from_generator(val_gen, 10, prediction, True)
+    my_model.evaluate(val_gen)
+    # prediction, mse, eyes_nose_lips_mse = predict_and_compute_losses(my_model, val_gen)
+    # print('mse', mse)
+    # plot_points.plot_from_generator(val_gen, 10, prediction, True)
 
     print('Temps d execution en secondes :', time.time() - a)
