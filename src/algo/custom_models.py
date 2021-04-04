@@ -1,14 +1,13 @@
 import tensorflow as tf
-from tensorflow.keras.applications import MobileNetV2, VGG19
 from tensorflow.keras.layers import GlobalAveragePooling2D, Flatten, Dropout, Dense
 import src.utils.config as config
 
 
-def mobilenet_v2_custom(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size=config.cfg.TRAIN_PARAM.
+def mobilenetv2(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size=config.cfg.TRAIN_PARAM.
                         TRAINING_SIZE):
-    base_model = MobileNetV2(input_shape=(training_size, training_size, 3),
-                             include_top=False,
-                             weights='imagenet')
+    base_model = tf.keras.applications.MobileNetV2(input_shape=(training_size, training_size, 3),
+                                                   include_top=False,
+                                                   weights='imagenet')
 
     base_model.summary()
     for layer in base_model.layers:
@@ -24,10 +23,10 @@ def mobilenet_v2_custom(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, traini
     return model
 
 
-def vgg19_custom(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size=config.cfg.TRAIN_PARAM.TRAINING_SIZE):
-    base_model = VGG19(input_shape=(training_size, training_size, 3),
-                       include_top=False,
-                       weights='imagenet')
+def vgg19(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size=config.cfg.TRAIN_PARAM.TRAINING_SIZE):
+    base_model = tf.keras.applications.VGG19(input_shape=(training_size, training_size, 3),
+                                             include_top=False,
+                                             weights='imagenet')
 
     # nb_layer = 0
     # for layer in base_model.layers:
@@ -49,4 +48,3 @@ def vgg19_custom(num_output=config.cfg.TRAIN_PARAM.NUM_PARAMETERS, training_size
 # if __name__ == '__main__':
 #     vgg19_custom()
 #     mobilenet_v2_custom()
-

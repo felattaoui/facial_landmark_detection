@@ -1,6 +1,6 @@
 from imgaug import augmenters as iaa
 import src.utils.utils as utils
-import src.algo.batch_generator_supervised as sup_batch
+import src.algo.batch_generator as sup_batch
 import src.utils.config as config
 import src.utils.plot_points_on_faces as plot_points
 import time
