@@ -6,7 +6,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import load_model
 import time
 import src.utils.utils as utils
-import src.algo.batch_generator_supervised as sup_batch
+import src.algo.batch_generator as sup_batch
 import src.utils.config as config
 from src.algo.custom_models import vgg19_custom
 
