@@ -1,5 +1,5 @@
 from tensorflow.python.keras.losses import mean_squared_error
-from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam, RMSprop
 from tensorflow.keras.models import load_model
 import time
 from src.algo.build_generators import build_generators
@@ -24,7 +24,7 @@ def train(workers, data_aug=True):
 
     print('training of ' + my_function.__name__)
 
-    model_name = config.cfg.TRAIN_PATH.MODEL_NAME + '/' + function_name
+    model_name = config.cfg.TRAIN_PATH.MODEL_NAME + '/' + function_name +'_RMSProp'
     tensorboard = model_name + '.logs'
     model_name = model_name + '.keras.model'
 
@@ -54,7 +54,7 @@ def train(workers, data_aug=True):
     # fit
     if config.cfg.TRAIN_PATH.RETRAIN is None:
         print("model_compile")
-        my_model.compile(loss=mean_squared_error, optimizer=Adam(lr=1e-4), metrics=[mean_squared_error])
+        my_model.compile(loss=mean_squared_error, optimizer=RMSprop(lr=1e-4), metrics=[mean_squared_error])
         print("model_generator")
         my_model.fit(
             x=train_gen,

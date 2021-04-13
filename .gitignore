@@ -16,6 +16,7 @@ trained_models
 .vscode
 old
 Models_dense
+models
 tmp
 .logs
 *.v2
